@@ -1,2 +1,2 @@
-# Standardized-max-logits (In preparation)
+# Standardized Max Logits (SML) - In preparation
 Official pyotrch implementation of paper: Standardized Max Logits: A Simple yet Effective Approach for Identifying Unexpected Road Obstacles in Urban-Scene Segmentation
