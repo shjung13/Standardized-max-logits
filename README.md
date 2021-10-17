@@ -86,7 +86,7 @@ Our result is also available at [fishyscapes.com](https://fishyscapes.com/).
 
 
 ## Acknowledgments
-We deeply appreciate Hermann Blum and FishyScapesteam for their sincere help in providing the baseline perfor-mances and helping our team to update our model on theFishyScapes Leaderboard.
+We deeply appreciate Hermann Blum and FishyScapes team for their sincere help in providing the baseline performances and helping our team to update our model on the FishyScapes Leaderboard.
 Our pytorch implementation is heavily derived from [NVIDIA segmentation](https://github.com/NVIDIA/semantic-segmentation) and [RobustNet](https://github.com/shachoi/RobustNet).
 Thanks to the NVIDIA implementations.
 
