@@ -1,0 +1,12 @@
+imageio==2.9.0
+numpy==1.20.1
+ood-metrics==0.2.9
+Pillow==8.1.0
+tqdm==4.61.0
+scikit-image==0.16.2
+scikit-learn==0.24.1
+scipy==1.1.0
+torch==1.7.0+cu110
+tensorboardX==2.4
+torchvision==0.8.1
+kornia @ git+https://github.com/kornia/kornia@af948c5baddbbe1b4c4f1cde86817a4408fe7167
