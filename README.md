@@ -101,6 +101,17 @@ CUDA_VISIBLE_DEVICES=0 python eval.py --ood_dataset_path <path_to_OoD_dataset>
 ## Fishyscapes Leaderboard
 Our result is also available at [fishyscapes.com](https://fishyscapes.com/). 
 
+## Citation
+```
+@InProceedings{Jung_2021_ICCV,
+    author    = {Jung, Sanghun and Lee, Jungsoo and Gwak, Daehoon and Choi, Sungha and Choo, Jaegul},
+    title     = {Standardized Max Logits: A Simple yet Effective Approach for Identifying Unexpected Road Obstacles in Urban-Scene Segmentation},
+    booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},
+    month     = {October},
+    year      = {2021},
+    pages     = {15425-15434}
+}
+```
 
 ## Acknowledgments
 We deeply appreciate Hermann Blum and FishyScapes team for their sincere help in providing the baseline performances and helping our team to update our model on the FishyScapes Leaderboard.
