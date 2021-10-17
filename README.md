@@ -14,10 +14,10 @@ This repository provides the official PyTorch implementation of the following pa
 Existing approaches use images of unexpected objects from external datasets or require additional training (e.g., retraining segmentation networks or training an extra network), which necessitate a non-trivial amount of labor intensity or lengthy inference time.
 One possible alternative is to use prediction scores of a pre-trained network such as the max logits (i.e., maximum values among classes before the final softmax layer) for detecting such objects.
 However, the distribution of max logits of each predicted class is significantly different from each other, which degrades the performance of identifying unexpected objects in urban-scene segmentation.
-To address this issue, we propose a simple yet effective approach that standardizes the max logits in order to align the different distributions and reflect the relative meanings of max logits within each predicted class.  
-Moreover, we consider the local regions from two different perspectives based on the intuition that neighboring pixels share similar semantic information. 
+To address this issue, we propose a simple yet effective approach that standardizes the max logits in order to align the different distributions and reflect the relative meanings of max logits within each predicted class.
+>Moreover, we consider the local regions from two different perspectives based on the intuition that neighboring pixels share similar semantic information. 
 In contrast to previous approaches, our method does not utilize any external datasets or require additional training, which makes our method widely applicable to existing pre-trained segmentation models. 
-Such a straightforward approach achieves a new state-of-the-art performance on the publicly available Fishyscapes Lost & Found leaderboard with a large margin. *<br>
+Such a straightforward approach achieves a new state-of-the-art performance on the publicly available Fishyscapes Lost & Found leaderboard with a large margin.*<br>
 
 <p align="center">
   <img src="assets/main.png" />
@@ -42,12 +42,10 @@ Clone this repository.
 ```
 git clone https://github.com/shjung13/Standardized-max-logits.git
 cd Standardized-max-logits
-pip install -r requirements
-CUDA_VISIBLE_DEVICES=0 python3 train.py --wandb --tensorboard
+pip install -r requirements.txt
 ```
+#### Data directory
 
-### How to Run 
-In preparation ...
 ```
 cityscapes
  └ leftImg8bit_trainvaltest
@@ -62,11 +60,14 @@ cityscapes
      └ test
 ```
 
-### Pretrained Models
-#### All models trained for our paper
-You can validate pretrained model with following commands.
+### How to Run 
+#### Obtain statistics from training samples
 ```
-CUDA_VISIBLE_DEVICES=0 python3 train.py --wandb --tensorboard
+CUDA_VISIBLE_DEVICES=3 ./scripts/train_r101_os8_statistics.sh
+```
+#### SML + Iterative Boundary Suppression + Gaussian Smoothing
+```
+CUDA_VISIBLE_DEVICES=3 python eval.py
 ```
 
 ## Quantitative / Qualitative Evaluation
@@ -85,6 +86,7 @@ Our result is also available at [fishyscapes.com](https://fishyscapes.com/).
 
 
 ## Acknowledgments
-Our pytorch implementation is heavily derived from [NVIDIA segmentation](https://github.com/NVIDIA/semantic-segmentation) and [HANet](https://github.com/shachoi/HANet).
+We deeply appreciate Hermann Blum and FishyScapesteam for their sincere help in providing the baseline perfor-mances and helping our team to update our model on theFishyScapes Leaderboard.
+Our pytorch implementation is heavily derived from [NVIDIA segmentation](https://github.com/NVIDIA/semantic-segmentation) and [RobustNet](https://github.com/shachoi/RobustNet).
 Thanks to the NVIDIA implementations.
 
