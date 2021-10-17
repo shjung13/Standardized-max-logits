@@ -1,11 +1,11 @@
-# SML (ICCV 2021, Oral) : Official Project Webpage - In preparation
+# SML (ICCV 2021, Oral) : Official Pytorch Implementation
 This repository provides the official PyTorch implementation of the following paper:
-> Standardized Max Logits: A Simple yet Effective Approach for Identifying Unexpected Road Obstacles in Urban-Scene Segmentation<br>
-> [Sanghun Jung](https://shjung13.github.io/)* (KAIST AI), [Jungsoo Lee](https://leebebeto.github.io/)* (KAIST AI), Daehoon Gwak (KAIST AI)<br>
+> Standardized Max Logits: A Simple yet Effective Approach for Identifying Unexpected Road Obstacles in Urban-Scene Segmentation <br>
+> [Sanghun Jung](https://shjung13.github.io/)* (KAIST AI), [Jungsoo Lee](https://leebebeto.github.io/)* (KAIST AI), Daehoon Gwak (KAIST AI) <br>
 > [Sungha Choi](https://www.linkedin.com/in/sungha-choi-1130185a/) (LG AI Research), and [Jaegul Choo](https://sites.google.com/site/jaegulchoo/) (KAIST AI) (*: equal contribution)<br>
 > ICCV 2021 (Oral) <br>
 
-> Paper: [arxiv](https://arxiv.org/abs/2107.11264)<br>
+> Paper: [arxiv](https://arxiv.org/abs/2107.11264) <br>
 
 > Youtube Video (English): [Youtube](https://www.youtube.com/watch?v=leBJZHzX6xM) <br>
 
@@ -28,7 +28,8 @@ Such a straightforward approach achieves a new state-of-the-art performance on t
 </p>
 
 ## Code Contributors
-[Sanghun Jung](https://shjung13.github.io/) (KAIST AI), [Jungsoo Lee](https://leebebeto.github.io/) (KAIST AI)
+Sanghun Jung [[Website]](https://shjung13.github.io/) [[LinkedIn]](https://www.linkedin.com/in/sanghun-jung-b17a4b1b8/) [[Google Scholar]](https://scholar.google.com/citations?user=e7X7O8gAAAAJ&hl=en) (KAIST AI) <br>
+Jungsoo Lee [[Website]](https://leebebeto.github.io/) [[LinkedIn]](https://www.linkedin.com/in/jungsoo-lee-52103a17a/) [[Google Scholar]](https://scholar.google.com/citations?user=qSGLUDQAAAAJ&hl=ko) (KAIST AI)
 
 ## Concept Video
 Click the figure to watch the youtube video of our paper!
@@ -36,7 +37,7 @@ Click the figure to watch the youtube video of our paper!
   <a href="https://www.youtube.com/watch?v=leBJZHzX6xM"><img src="assets/youtube_main.png" alt="Youtube Video"></a><br>
 </p>
 
-## Pytorch Implementation (In-Preparation)
+## Pytorch Implementation 
 ### Installation
 Clone this repository.
 ```
@@ -44,7 +45,7 @@ git clone https://github.com/shjung13/Standardized-max-logits.git
 cd Standardized-max-logits
 pip install -r requirements.txt
 ```
-#### Data directory
+#### Cityscapes data directory
 
 ```
 cityscapes
@@ -60,14 +61,30 @@ cityscapes
      └ test
 ```
 
+#### OoD data directory
+```
+Fishyscapes (OoD Dataset)
+ └ leftImg8bit_trainvaltest
+   └ leftImg8bit
+     └ val
+ └ gtFine_trainvaltest
+   └ gtFine
+     └ val
+```
+
 ### How to Run 
+#### Train the segmentation model
+```
+CUDA_VISIBLE_DEVICES=0,1 ./scripts/train_r101_os8.sh
+```
 #### Obtain statistics from training samples
 ```
-CUDA_VISIBLE_DEVICES=3 ./scripts/train_r101_os8_statistics.sh
+CUDA_VISIBLE_DEVICES=0 ./scripts/calc_stat_r101_os8.sh
 ```
-#### SML + Iterative Boundary Suppression + Gaussian Smoothing
+#### Evaluate on Out-of-Distribution dataset
+Download the pretrained model [here](https://drive.google.com/file/d/1Rqty9pRhGdfhkfqlWbFUFgdFp0DvfORN/view?usp=sharing) and after creating "\<Directory Home>/pretrained", place it under the folder. 
 ```
-CUDA_VISIBLE_DEVICES=3 python eval.py
+CUDA_VISIBLE_DEVICES=0 python eval.py --ood_dataset_path <path_to_OoD_dataset>
 ```
 
 ## Quantitative / Qualitative Evaluation
