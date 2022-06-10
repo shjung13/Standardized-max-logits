@@ -74,7 +74,7 @@ Fishyscapes (OoD Dataset)
 
 ### How to Run 
 #### Train the segmentation model
-Please download resnet101 network pretrained on ImageNet dataset from this [link](http://sceneparsing.csail.mit.edu/model/pretrained_resnet/resnet101-imagenet.pth) and place it in ```pretrained/resnet101-imagenet.pth``` path.
+Please download resnet101 network pretrained on ImageNet dataset from this [link](http://sceneparsing.csail.mit.edu/model/pretrained_resnet) and place it in ```pretrained/resnet101-imagenet.pth``` path.
 Then run the below command.
 ```
 CUDA_VISIBLE_DEVICES=0,1 ./scripts/train_r101_os8.sh
